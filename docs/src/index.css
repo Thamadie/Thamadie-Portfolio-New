@@ -1,0 +1,138 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 24%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 24%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 24%;
+    --primary: 348 55% 93%;
+    --primary-foreground: 0 0% 24%;
+    --secondary: 260 100% 97%;
+    --secondary-foreground: 0 0% 24%;
+    --muted: 340 33% 95%;
+    --muted-foreground: 0 9% 42%;
+    --accent: 348 55% 93%;
+    --accent-foreground: 0 0% 24%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 340 33% 90%;
+    --input: 340 33% 90%;
+    --ring: 348 55% 80%;
+    --radius: 0.625rem;
+
+    /* Custom Design Colors */
+    --baby-pink: #F8E1E6;
+    --dusty-rose: #E8B4BC;
+    --lavender: #E6E6FA;
+    --mint-green: #E0F2E9;
+    --cream: #FFF9F5;
+    --blush: #FFE4E1;
+    --rose-gold: #FADADD;
+    --charcoal: #3D3D3D;
+    --warm-grey: #6B5B5B;
+    --taupe: #8B7D7D;
+    --light-pink: #F0D5DB;
+    --pale-lavender: #E8E8F5;
+    --soft-peach: #FFE8E0;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  .btn-pill {
+    @apply inline-flex items-center justify-center rounded-full px-8 py-4 text-base font-medium uppercase tracking-wider transition-all duration-300;
+  }
+
+  .btn-primary {
+    @apply btn-pill bg-[var(--baby-pink)] text-[var(--charcoal)];
+  }
+
+  .btn-primary:hover {
+    @apply bg-[var(--dusty-rose)] text-white scale-[1.02];
+  }
+
+  .btn-service {
+    @apply w-full rounded-xl bg-white px-6 py-4 text-base font-medium text-[var(--charcoal)] transition-all duration-300;
+  }
+
+  .btn-service:hover {
+    @apply bg-[var(--lavender)] shadow-lg;
+  }
+
+  .section-label {
+    @apply text-xs font-medium uppercase tracking-[0.2em] text-[var(--dusty-rose)];
+  }
+}
+
+@layer utilities {
+  .font-heading {
+    font-family: 'Playfair Display', serif;
+  }
+
+  .font-body {
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+/* Marquee animation for mobile banner */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+}
+
+/* Bounce animation for scroll indicator */
+@keyframes bounce-soft {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+.animate-bounce-soft {
+  animation: bounce-soft 2s ease-in-out infinite;
+}
+
+/* Hide scrollbar for horizontal scroll containers */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
